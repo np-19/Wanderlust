@@ -1,0 +1,22 @@
+<% layout('layouts/boilerplate') -%>
+
+<body>
+   
+    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1">
+        <% for(listing of allListings)  { %>
+            <a href="/listings/<%= listing._id%>">
+                <div class="card" >
+                    <img src="<%= listing.image.url%>" style="aspect-ratio: 1 / 1;" class="card-img-top" alt="...">
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                      <p class="card-text">
+                        <b><%= listing.title %></b>
+                         <br>
+                        <i class="fa-solid fa-indian-rupee-sign"></i> <%= listing.price.toLocaleString('en-IN') %> / night
+                    </p>
+                    </div>
+                  </div>
+            </a>
+              <% } %>
+    </div>
+</body>
