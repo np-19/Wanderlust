@@ -1,0 +1,123 @@
+<% layout('layouts/boilerplate') -%>
+
+<br /><br />
+<h3 style="text-align: center">Edit this Listing</h3>
+<div class="row">
+  <div class="col-8 offset-2">
+    <form
+      enctype="multipart/form-data"
+      method="POST"
+      action="/listings/<%=listing._id%>?_method=PUT"
+      novalidate
+      class="needs-validation"
+    >
+      <div class="title mb-2 col">
+        <label for="title" class="form-label">Title</label>
+        <input
+          required
+          class="form-control"
+          name="Listing[title]"
+          value="<%=listing.title%>"
+          placeholder="Enter title"
+          type="text"
+        />
+        <div class="invalid-feedback">Please enter title!</div>
+      </div>
+      <div class="title mb-2 col">
+        <label for="categories" class="form-label">Select Categories</label>
+        <select
+          id="categories"
+          name="Listing[categories]"
+          class="form-select"
+        >
+          <option value="Rooms">Rooms</option>
+          <option value="Iconic Cities">Iconic Cities</option>
+          <option value="Arctic">Arctic</option>
+          <option value="Mountains">Mountains</option>
+          <option value="Castles">Castles</option>
+          <option value="Beaches">Beaches</option>
+          <option value="Farms">Farms</option>
+          <option value="Countryside">Countryside</option>
+        </select>
+      </div>
+      <div class="description mb-2 col">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          class="form-control"
+          name="Listing[description]"
+          placeholder="Enter description"
+        >
+<%=listing.description%></textarea
+        >
+        <div class="invalid-feedback">Please enter description!</div>
+      </div>
+      <div class="image mb-2 col">
+        <label class="form-label" for="image">Current Image</label><br />
+        <img
+          style="border-radius: 10px"
+          width="250"
+          height="200px"
+          src="<%=url%>"
+          class="img-fluid"
+          alt=""
+        />
+      </div>
+      <div class="image mb-2 col">
+        <label class="form-label" for="image">Upload New Image</label>
+        <input
+          class="form-control"
+          name="Listing[image][url]"
+          accept="image/*"
+          placeholder="Upload New Image"
+          type="file"
+        />
+        <div class="invalid-feedback">Please enter a valid image URL!</div>
+      </div>
+      <div class="row">
+        <div class="price mb-2 col-md-4">
+          <label class="form-label" for="price">Price</label>
+          <input
+            min="0"
+            required
+            class="form-control hide-spin-buttons"
+            name="Listing[price]"
+            value="<%=listing.price%>"
+            placeholder="Enter price"
+            type="number"
+          />
+          <div class="invalid-feedback">Please enter a valid price!</div>
+        </div>
+        <div class="country mb-2 col-md-8">
+          <label class="form-label" for="country">Country</label>
+          <input
+            required
+            class="form-control"
+            name="Listing[country]"
+            value="<%=listing.country%>"
+            placeholder="Enter country"
+            type="text"
+          />
+          <div class="invalid-feedback">Please enter country!</div>
+        </div>
+      </div>
+      <div class="location mb-2 col">
+        <label class="form-label" for="location">Location</label>
+        <input
+          required
+          class="form-control"
+          name="Listing[location]"
+          value="<%=listing.location%>"
+          placeholder="Enter location"
+          type="text"
+        />
+        <div class="invalid-feedback">Please enter location!</div>
+      </div>
+      <br />
+      <br />
+      <button class="btn btn-dark">Edit</button>
+      <br />
+      <br />
+      <br />
+    </form>
+  </div>
+</div>

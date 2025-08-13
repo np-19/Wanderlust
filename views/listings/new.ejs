@@ -1,0 +1,121 @@
+<% layout('layouts/boilerplate') -%>
+
+<script>
+  const categories = ['Trending', 'Rooms', 'Iconic Cities', 'Arctic', 'Mountains', 'Castles', 'Beaches', 'Farms', 'Countryside'];
+  const container = document.getElementById('category-checkboxes');
+
+  categories.forEach(cat => {
+    container.innerHTML += `
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="categories" value="${cat}" id="${cat}">
+        <label class="form-check-label" for="${cat}">${cat}</label>
+      </div>
+    `;
+  });
+</script>
+
+<br /><br />
+<h3 style="text-align: center">Add a new Listing</h3>
+<div class="row">
+  <div class="col-8 offset-2">
+    <form
+      method="POST"
+      action="/listings"
+      novalidate
+      enctype="multipart/form-data"
+      class="needs-validation"
+    >
+      <div class="title mb-2 col">
+        <label for="title" class="form-label">Title</label>
+        <input
+          required
+          class="form-control"
+          name="Listing[title]"
+          for="title"
+          placeholder="Enter title"
+          type="text"
+        />
+        <div class="invalid-feedback">Please enter title!</div>
+      </div>
+      <div class="mb-2 col">
+        <label for="categories" class="form-label">Select Categories</label>
+        <select
+          id="categories"
+          name="Listing[categories]"
+          class="form-select"
+        >
+          <option value="Rooms">Rooms</option>
+          <option value="Iconic Cities">Iconic Cities</option>
+          <option value="Arctic">Arctic</option>
+          <option value="Mountains">Mountains</option>
+          <option value="Castles">Castles</option>
+          <option value="Beaches">Beaches</option>
+          <option value="Farms">Farms</option>
+          <option value="Countryside">Countryside</option>
+        </select>
+      </div>
+      <div class="description mb-2 col">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          required
+          class="form-control"
+          name="Listing[description]"
+          placeholder="Enter description"
+        ></textarea>
+        <div class="invalid-feedback">Please enter description!</div>
+      </div>
+      <div class="image mb-2 col">
+        <label class="form-label" for="image">Upload Image</label>
+        <input
+          class="form-control"
+          accept="image/*"
+          name="uploaded_image"
+          placeholder="Enter image URL"
+          type="file"
+        />
+      </div>
+      <div class="row">
+        <div class="price mb-2 col-md-4">
+          <label class="form-label" for="price">Price</label>
+          <input
+            min="0"
+            required
+            class="form-control hide-spin-buttons"
+            name="Listing[price]"
+            placeholder="Enter price"
+            type="number"
+          />
+          <div class="invalid-feedback">Please enter a valid price!</div>
+        </div>
+        <div class="country mb-2 col-md-8">
+          <label class="form-label" for="country">Country</label>
+          <input
+            required
+            class="form-control"
+            name="Listing[country]"
+            placeholder="Enter country"
+            type="text"
+          />
+          <div class="invalid-feedback">Please enter country!</div>
+        </div>
+      </div>
+      <div class="location mb-2 col">
+        <label class="form-label" for="location">Location</label>
+        <input
+          required
+          class="form-control"
+          name="Listing[location]"
+          placeholder="Enter location"
+          type="text"
+        />
+        <div class="invalid-feedback">Please enter location!</div>
+      </div>
+      <br />
+      <br />
+      <button class="btn btn-dark">Add</button>
+      <br />
+      <br />
+      <br />
+    </form>
+  </div>
+</div>

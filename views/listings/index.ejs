@@ -1,0 +1,82 @@
+<% layout('layouts/boilerplate') -%>
+
+
+<div class="options">
+  <div id="filters" class="mt-2 pt-1">
+  <div class="filter" data-value="Trending">
+    <div><i class="fa-solid fa-fire"></i></div>
+    <p><i>Trending</i></p>
+  </div>
+  <div class="filter" data-value="Rooms">
+    <div><i class="fa-solid fa-bed"></i></div>
+    <p><i>Rooms</i></p>
+  </div>
+  <div class="filter" data-value="Iconic Cities">
+    <div><i class="fa-solid fa-city"></i></div>
+    <p><i>Iconic Cities</i></p>
+  </div>
+  <div class="filter" data-value="Arctic">
+    <div><i class="fa-regular fa-snowflake"></i></div>
+    <p><i>Arctic</i></p>
+  </div>
+  <div class="filter" data-value="Mountains">
+    <div><i class="fa-solid fa-mountain"></i></div>
+    <p><i>Mountains</i></p>
+  </div>
+  <div class="filter" data-value="Castles">
+    <div><i class="fa-brands fa-fort-awesome"></i></div>
+    <p><i>Castles</i></p>
+  </div>
+  <div class="filter" data-value="Beaches">
+    <div><i class="fa-solid fa-umbrella-beach"></i></div>
+    <p><i>Beaches</i></p>
+  </div>
+  <div class="filter" data-value="Farms">
+    <div><i class="fa-solid fa-tractor"></i></div>
+    <p><i>Farms</i></p>
+  </div>
+  <div class="filter" data-value="Countryside">
+    <div><i class="fa-solid fa-tree"></i></div>
+    <p><i>Countryside</i></p>
+  </div>
+</div>
+  <div id="taxes" class="form-check form-switch form-check-reverse">
+  <input id="tax-toggle" class="form-check-input" type="checkbox" id="switchCheckReverse">
+  <label class="form-check-label tax-price" for="switchCheckReverse">Include taxes</label>
+</div>
+</div>
+
+
+
+<div
+  id="listings"
+  class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 mb-2"
+>
+  <% for(listing of allListings) { %>
+  <a href="/listings/<%= listing._id%>">
+    <div class="card listing-card listing-data" data-category="<%= listing.categories %>">
+      <img
+        src="<%= listing.image.url%>"
+        style="aspect-ratio: 1 / 1"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-img-overlay"></div>
+      <div class="card-body">
+        <p class="card-text">
+          <b><%= listing.title %></b>
+          <br />
+          <i class="fa-solid fa-indian-rupee-sign"></i>
+          <span class="price">
+             <%= listing.price.toLocaleString('en-IN') %>
+          </span>  / night
+        </p>
+      </div>
+    </div>
+  </a>
+  <% } %>
+</div>
+    <script src="/js/filter.js"></script>
+
+
+
