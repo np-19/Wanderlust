@@ -91,6 +91,10 @@ const reviewRouter = require("./routes/reviews.js");
 const userRouter = require("./routes/user.js");
 const featureRouter = require("./routes/listingFeatures.js")
 
+app.get('/',(req,res) =>{
+  res.redirect('/listings');
+})
+
 app.use("/listings/results", featureRouter);
 app.use("/listings", listingRouter); // listings -- parent route & child routes are in listings.js
 app.use("/listings/:id/reviews", reviewRouter); // listings/:id/reviews -- parent route & child routes are in reviews.js
