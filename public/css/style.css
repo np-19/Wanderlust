@@ -87,8 +87,8 @@ body {
 .card-img-top {
   border-radius: 1rem !important;
   width: 100% !important;
-  object-fit: cover !important;
-  height: auto;
+  object-fit: auto !important;
+  aspect-ratio:1.1/1 !important;
 }
 .collapse {
   background-color: white;
@@ -127,9 +127,10 @@ body {
   padding-right: 0;
 }
 .show-img {
-  height: 30vh !important;
+  width: 45vw !important;
   aspect-ratio: 16/10 !important;
-  object-fit: cover;
+  /* height:auto !important; */
+  object-fit: cover !important;
 }
 
 .edit-btn {

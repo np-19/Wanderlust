@@ -20,7 +20,7 @@ main().then(()=>{
 
 
 async function main() {
-    await mongoose.connect(`${process.env.ATLASDB_URL}`);
+    await mongoose.connect(dbUrl);
     // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
   
 
@@ -42,7 +42,7 @@ async function main() {
 
   const initDB = async () => {
      await Listing.deleteMany({})
-     initData.data = initData.data.map((obj)=>  ({...obj,owner:"688df5cd12a3c94768734495"}))
+     initData.data = initData.data.map((obj)=>  ({...obj,owner:"689c33e9c1de866bcd42da10"}))
      await update(initData.data);
      await Listing.insertMany(initData.data)
      console.log('data initialised');
