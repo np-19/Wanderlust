@@ -2,8 +2,6 @@ const User = require('../models/user.js');
 
 
 
-
-
 module.exports.renderSignupForm = (req,res)=>{
     res.render("users/signup.ejs")
 }
@@ -45,7 +43,7 @@ module.exports.logout =  (req,res,next)=>{
         }
         req.flash('success', 'You are logged out!')
     // res.redirect('/listings')
-    res.redirect('/back')
+    res.redirect('/listings')
 
     })  
 }
