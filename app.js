@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV != "production") {
   require("dotenv").config();
 }
-
+//express app
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
